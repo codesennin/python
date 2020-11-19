@@ -1,6 +1,6 @@
 from enum import Enum
 from typing import Any, Optional, Dict, List, Callable
-import kolejka_fifo as fifo
+import linked_list_fifo_queue as fifo
 
 class EdgeType(Enum):
     directed = 1
@@ -83,25 +83,29 @@ class Graph:
 def _visit(vertex: Vertex):
     print(vertex)
 
-graf = Graph()
-graf.create_vertex("v0")
-graf.create_vertex("v1")
-graf.create_vertex("v2")
-graf.create_vertex("v3")
-graf.create_vertex("v4")
-graf.create_vertex("v5")
+#################
+#### EXAMPLE ####
+#################
 
-wierzcholki = graf.getVertexs()
+graph = Graph()
+graph.create_vertex("v0")
+graph.create_vertex("v1")
+graph.create_vertex("v2")
+graph.create_vertex("v3")
+graph.create_vertex("v4")
+graph.create_vertex("v5")
 
-graf.add(2, wierzcholki[0], wierzcholki[1])
-graf.add(2, wierzcholki[0], wierzcholki[5])
-graf.add(2, wierzcholki[5], wierzcholki[2])
-graf.add(2, wierzcholki[5], wierzcholki[1])
-graf.add(2, wierzcholki[2], wierzcholki[3])
-graf.add(2, wierzcholki[2], wierzcholki[1])
-graf.add(2, wierzcholki[3], wierzcholki[4])
-graf.add(2, wierzcholki[4], wierzcholki[5])
-graf.add(2, wierzcholki[4], wierzcholki[1])
+vertexs = graph.getVertexs()
 
-# graf.print()
-graf.traverse_breadth_first(_visit)
+graph.add(2, vertexs[0], vertexs[1])
+graph.add(2, vertexs[0], vertexs[5])
+graph.add(2, vertexs[5], vertexs[2])
+graph.add(2, vertexs[5], vertexs[1])
+graph.add(2, vertexs[2], vertexs[3])
+graph.add(2, vertexs[2], vertexs[1])
+graph.add(2, vertexs[3], vertexs[4])
+graph.add(2, vertexs[4], vertexs[5])
+graph.add(2, vertexs[4], vertexs[1])
+
+graph.print()
+# graph.traverse_breadth_first(_visit)

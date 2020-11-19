@@ -72,9 +72,9 @@ class LinkedList:
     
     def __len__(self):
         len = 0
-        temp=self.head
+        temp = self.head
         while(temp != None):
-            temp=temp.next
+            temp = temp.next
             len += 1
         return len
 
@@ -102,24 +102,24 @@ class Queue:
         return f'{self.queue.head.value}, {self.queue.head.next}'
 
 #################
-### DZIAŁANIE ###
+#### EXAMPLE ####
 #################
 
 # queue = Queue()
 # print(len(queue))
 # assert len(queue) == 0
 
-# queue.enqueue('klient1')
-# queue.enqueue('klient2')
-# queue.enqueue('klient3')
+# queue.enqueue('client1')
+# queue.enqueue('client2')
+# queue.enqueue('client3')
 # print(queue)
 # print(len(queue))
-# assert str(queue) == 'klient1, klient2, klient3'
+# assert str(queue) == 'client1, client2, client3'
 
 # client_first = queue.dequeue()
 # print(client_first)
-# assert client_first == 'klient1'
+# assert client_first == 'client1'
 # print(queue)
-# assert str(queue) == 'klient2, klient3'
+# assert str(queue) == 'client2, client3'
 # print(len(queue))
 # assert len(queue) == 2
