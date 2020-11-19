@@ -54,16 +54,15 @@ class Graph:
         keys = self.getVertexs()
         visited = []
         que = fifo.Queue()
-        visit(self.adjacencies[keys[0]])
-        visited.append(self.adjacencies[keys[0]])
-        que.enqueue(self.adjacencies[keys[0]])
+        que.enqueue(keys[0])
         while len(que) != 0:
             v = que.dequeue()
-            if v not in visited:
-                visit(v)
-                visited.append(v)
-                for neighbour in self.adjacencies[keys[v]]:
-                    que.enqueue(neighbour)
+            visit(v)
+            visited.append(v)
+            for neighbour in self.adjacencies[v]:
+                if neighbour.destination not in visited:
+                    que.enqueue(neighbour.destination)
+
 
     def traverse_depth_first(self, visit: Callable[[Any], None]):
         pass
