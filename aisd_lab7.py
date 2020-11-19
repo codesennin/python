@@ -34,20 +34,14 @@ class Graph:
         self.adjacencies = {}
     
     def create_vertex(self, data: Any):
-        index = len(self.adjacencies)+1
+        index = len(self.adjacencies)
         self.adjacencies[Vertex(data, index)] = []
     
     def add_directed_edge(self, source: Vertex, destination: Vertex, weight: Optional[float] = None):
-        if source not in self.adjacencies:
-            self.adjacencies[source] = []
         self.adjacencies[source].append(Edge(source, destination, weight))
     
     def add_undirected_edge(self, source: Vertex, destination: Vertex, weight: Optional[float] = None):
-        if source.data not in self.adjacencies:
-            self.adjacencies[source] = []
         self.adjacencies[source].append(Edge(source, destination, weight))
-        if destination not in self.adjacencies:
-            self.adjacencies[destination] = []
         self.adjacencies[destination].append(Edge(destination, source, weight))
     
     def add(self, edge: EdgeType, source: Vertex, destination: Vertex, weight: Optional[float] = None):
@@ -57,17 +51,18 @@ class Graph:
             self.add_undirected_edge(source, destination, weight)
         
     def traverse_breadth_first(self, visit: Callable[[Any], None]):
+        keys = self.getVertexs()
         visited = []
         que = fifo.Queue()
-        visit(self.adjacencies[0])
-        visited.append(self.adjacencies[0])
-        que.enqueue(self.adjacencies[0])
+        visit(self.adjacencies[keys[0]])
+        visited.append(self.adjacencies[keys[0]])
+        que.enqueue(self.adjacencies[keys[0]])
         while len(que) != 0:
             v = que.dequeue()
             if v not in visited:
                 visit(v)
                 visited.append(v)
-                for neighbour in self.adjacencies[v]:
+                for neighbour in self.adjacencies[keys[v]]:
                     que.enqueue(neighbour)
 
     def traverse_depth_first(self, visit: Callable[[Any], None]):
@@ -79,8 +74,35 @@ class Graph:
     def print(self):
         for data in self.adjacencies:
             print(data, "---->", self.adjacencies[data], sep=" ")  
+    
+    def getVertexs(self):
+        keys = []
+        for key in self.adjacencies.keys():
+            keys.append(key)
+        return keys
 
 def _visit(vertex: Vertex):
     print(vertex)
 
 graf = Graph()
+graf.create_vertex("v0")
+graf.create_vertex("v1")
+graf.create_vertex("v2")
+graf.create_vertex("v3")
+graf.create_vertex("v4")
+graf.create_vertex("v5")
+
+wierzcholki = graf.getVertexs()
+
+graf.add(2, wierzcholki[0], wierzcholki[1])
+graf.add(2, wierzcholki[0], wierzcholki[5])
+graf.add(2, wierzcholki[5], wierzcholki[2])
+graf.add(2, wierzcholki[5], wierzcholki[1])
+graf.add(2, wierzcholki[2], wierzcholki[3])
+graf.add(2, wierzcholki[2], wierzcholki[1])
+graf.add(2, wierzcholki[3], wierzcholki[4])
+graf.add(2, wierzcholki[4], wierzcholki[5])
+graf.add(2, wierzcholki[4], wierzcholki[1])
+
+# graf.print()
+graf.traverse_breadth_first(_visit)
