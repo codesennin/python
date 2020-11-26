@@ -1,6 +1,22 @@
+import matplotlib.pyplot as plt
+import networkx as nx
 from enum import Enum
 from typing import Any, Optional, Dict, List, Callable
 from ASiD import linked_list_fifo_queue as fifo
+
+class GraphVisualization:
+    visual: List[List[int]]
+    def __init__(self):
+        self.visual = []
+
+    def addEdge(self, a: int, b: int):
+        self.visual.append([a, b])
+
+    def visualize(self):
+        graph = nx.Graph()
+        graph.add_edges_from(self.visual)
+        nx.draw_networkx(graph)
+        plt.show()
 
 class EdgeType(Enum):
     directed = 1
@@ -64,10 +80,24 @@ class Graph:
                     que.enqueue(neighbour.destination)
 
     def traverse_depth_first(self, visit: Callable[[Any], None]):
-        pass
+        keys = self.getVertexs()
+        visited = []
+        v = keys[0]
+        self._traverse_depth_first(v, visited, visit)
+
+    def _traverse_depth_first(self, v: Vertex, visited: List[Vertex], visit: Callable[[Any], None]):
+        visit(v)
+        visited.append(v)
+        for neighbour in self.adjacencies[v]:
+            if neighbour.destination not in visited:
+                self._traverse_depth_first(neighbour.destination, visited, visit)
 
     def show(self):
-        pass
+        graph = GraphVisualization()
+        for key in self.adjacencies.keys():
+            for edge in self.adjacencies[key]:
+                graph.addEdge(edge.source, edge.destination)
+        graph.visualize()
 
     def print(self):
         for data in self.adjacencies:
@@ -106,5 +136,7 @@ graph.add(2, vertexs[3], vertexs[4])
 graph.add(2, vertexs[4], vertexs[5])
 graph.add(2, vertexs[4], vertexs[1])
 
-graph.print()
+# graph.print()
 # graph.traverse_breadth_first(_visit)
+# graph.traverse_depth_first(_visit)
+graph.show()
