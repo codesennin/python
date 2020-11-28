@@ -43,14 +43,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ASiD/aisd_lab8.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Other/sort.py" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\KiPR\Documents\GitHub\python\ASiD" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.asid_lab8">
+  <component name="RunManager" selected="Python.sorts">
     <configuration name="Graph" type="PythonConfigurationType" factoryName="Python">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -93,6 +93,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sorts" type="PythonConfigurationType" factoryName="Python">
+      <module name="python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Other" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Other/sort.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="spambot" type="PythonConfigurationType" factoryName="Python">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,6 +138,7 @@
     <list>
       <item itemvalue="Python.Graph" />
       <item itemvalue="Python.asid_lab8" />
+      <item itemvalue="Python.sorts" />
       <item itemvalue="Python.spambot" />
     </list>
   </component>
@@ -141,32 +163,33 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="174" width="1092" height="763" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606393446807">
+    <state x="414" y="174" width="1092" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606467739885">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="174" width="1092" height="763" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606393446807" />
-    <state x="740" y="286" key="FileChooserDialogImpl" timestamp="1606393443450">
+    <state x="414" y="174" width="1092" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606467739885" />
+    <state x="740" y="286" key="FileChooserDialogImpl" timestamp="1606467736729">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="286" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606393443450" />
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1606399133395">
+    <state x="740" y="286" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606467736729" />
+    <state width="936" height="143" key="GridCell.Tab.0.bottom" timestamp="1606484454373">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606399133395" />
-    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1606399133395">
+    <state width="936" height="143" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606484454373" />
+    <state width="936" height="143" key="GridCell.Tab.0.center" timestamp="1606484454373">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606399133395" />
-    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1606399133395">
+    <state width="936" height="143" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606484454373" />
+    <state width="936" height="143" key="GridCell.Tab.0.left" timestamp="1606484454373">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606399133395" />
-    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1606399133395">
+    <state width="936" height="143" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606484454373" />
+    <state width="936" height="143" key="GridCell.Tab.0.right" timestamp="1606484454373">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606399133395" />
+    <state width="936" height="143" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606484454373" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1606399133395">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
