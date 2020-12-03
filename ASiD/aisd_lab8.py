@@ -24,18 +24,21 @@ class GraphVisualization:
             self.visual.append([a, b])
 
     def visualize(self):
-        graph = nx.Graph()
+        graph = nx.DiGraph()
         if len(self.visualWeighted) != 0:
             graph.add_weighted_edges_from(self.visualWeighted)
         if len(self.visual) != 0:
                 graph.add_edges_from(self.visual)
-        nx.draw_networkx(graph)
+        nx.draw(graph, nx.planar_layout(graph), edge_color="black", width=2, with_labels=True, node_size=1000, alpha=0.8, arrows=True)
+        labels = nx.get_edge_attributes(graph, 'weight')
+        nx.draw_networkx_edge_labels(graph, nx.planar_layout(graph), edge_labels=labels)
         plt.show()
 
 
 class EdgeType(Enum):
     directed = 1
     undirected = 2
+
 
 class Vertex:
     data: Any
@@ -139,8 +142,8 @@ class GraphPath:
         self.graph = graph
 
     def _algDijkstry(self, source: Vertex, destination: Vertex):
-        costs, parents = {}, {}
-        for child_vertex in self.graph.adjacencies.keys():
+        costs, parents, keys = {}, {}, self.graph.getVertexs()
+        for child_vertex in keys:
             costs[child_vertex], parents[child_vertex] = 2147483647, None
         for neighbour_vertex in self.graph.adjacencies[source]:
             costs[neighbour_vertex.destination], parents[neighbour_vertex.destination] = neighbour_vertex.weight, neighbour_vertex.source
