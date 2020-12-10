@@ -29,7 +29,7 @@ class GraphVisualization:
             graph.add_weighted_edges_from(self.visualWeighted)
         if len(self.visual) != 0:
                 graph.add_edges_from(self.visual)
-        nx.draw(graph, nx.planar_layout(graph), edge_color="black", width=2, with_labels=True, node_size=1000, alpha=0.8, arrows=True)
+        nx.draw(graph, nx.planar_layout(graph), edge_color="black", width=2, with_labels=True, node_size=750, alpha=0.8, arrows=True)
         labels = nx.get_edge_attributes(graph, 'weight')
         nx.draw_networkx_edge_labels(graph, nx.planar_layout(graph), edge_labels=labels)
         plt.show()
@@ -211,37 +211,32 @@ def _visit(vertex: Vertex):
 #### EXAMPLE ####
 #################
 
-# deklaracja grafu
 graph = Graph()
-# deklaracja wierzchołków
-graph.create_vertex("A")
-graph.create_vertex("B")
-graph.create_vertex("C")
-graph.create_vertex("D")
 
-# pobranie listy wierzchołków żeby móc się do nich odwoływać przy tworzeniu krawędzi
+graph.create_vertex(0)
+graph.create_vertex(1)
+graph.create_vertex(2)
+graph.create_vertex(3)
+graph.create_vertex(4)
+graph.create_vertex(5)
+graph.create_vertex(6)
+
 vertexs = graph.getVertexs()
 
-# dodawanie krawędzi [1- jednokierunkowa/ 2 - dwukierunowa (dodałem raise Exception w przypadku podania innej wartości),
-# źródło(wierzchołek początowy), cel(wierzchołek końcowy), waga (standardowo None)]
-graph.add(1, vertexs[0], vertexs[1], 30)
-graph.add(1, vertexs[0], vertexs[2], 10)
-graph.add(1, vertexs[1], vertexs[3], 2)
-graph.add(1, vertexs[2], vertexs[1], 5)
-graph.add(1, vertexs[2], vertexs[3], 9)
+graph.add(1, vertexs[0], vertexs[2], 12)
+graph.add(1, vertexs[0], vertexs[4], 7)
+graph.add(1, vertexs[1], vertexs[4], 8)
+graph.add(1, vertexs[2], vertexs[5], 14)
+graph.add(1, vertexs[2], vertexs[6], 9)
+graph.add(1, vertexs[3], vertexs[4], 13)
+graph.add(1, vertexs[4], vertexs[5], 11)
+graph.add(1, vertexs[4], vertexs[6], 11)
+graph.add(1, vertexs[5], vertexs[6], 9)
 
-# wyświetlanie wierzchołków i wychodzących z nich krawędzi
 graph.print()
 
-# wyświetlenie grafu przy użyciu metody show która używa klasy GraphVisualization
 graph.show()
-
-# delaracja ścieżki
 path = GraphPath(graph)
+path.find_best_path(vertexs[0], vertexs[5])
 
-# wyświetlenie najlepszej ścieżki (jeśli krawędzie są ważone to algorytm Djikstry, w innym przypadku najkrótsza trasa (_in_bredth))
-path.find_best_path(vertexs[0], vertexs[3])
 
-# jeśli chce Pan przetestować działanie metody _in_bredth wystarczy zedytować krawędzie (graph.add(...))
-# w taki sposób by usunąć ostatnią zmienną (30, 10, 2, itd). Wtedy metoda find_best_path wykryje wagi jako
-# None i automatycznie zamieni wywoływanie algorytmu Dijkstry na metodę _in_bredth
